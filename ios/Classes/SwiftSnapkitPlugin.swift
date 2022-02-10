@@ -58,7 +58,7 @@ public class SwiftSnapkitPlugin: NSObject, FlutterPlugin {
             result("Logout Success")
 
         case "getAccessToken":
-            guard let accessToken = SCSDKLoginClient.getAccessToken() else {result FlutterError(code: "NoAccessToken", message: "No access token available", details: nil)}
+            let accessToken = SCSDKLoginClient.getAccessToken()
             result(accessToken);
 
         case "verifyNumber":
