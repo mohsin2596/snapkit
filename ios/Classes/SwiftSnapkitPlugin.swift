@@ -58,7 +58,7 @@ public class SwiftSnapkitPlugin: NSObject, FlutterPlugin {
             result("Logout Success")
 
         case "getAccessToken":
-            SCSDKLoginClient.getAccessToken(completion: {
+            SCSDKLoginClient.getAccessToken({
                 (accessToken) in
                 result(accessToken)
             })
