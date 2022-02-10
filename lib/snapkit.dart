@@ -6,9 +6,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'package:snapkit/SnapchatButton.dart';
 
 class Snapkit {
@@ -228,6 +227,12 @@ class Snapkit {
     bool isInstalled;
     isInstalled = await _channel.invokeMethod('isInstalled');
     return isInstalled;
+  }
+
+  /// Get access token
+  Future<dynamic> get accessToken async {
+    dynamic accessToken = await _channel.invokeMethod('getAccessToken');
+    return accessToken;
   }
 
   /// snapchatButton returns a `SnapchatButton` Widget that is already setup

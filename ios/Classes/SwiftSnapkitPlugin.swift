@@ -56,6 +56,13 @@ public class SwiftSnapkitPlugin: NSObject, FlutterPlugin {
         case "callLogout":
             SCSDKLoginClient.clearToken()
             result("Logout Success")
+
+        case "getAccessToken":
+            SCSDKLoginClient.getAccessToken(completion: {
+                (accessToken) in
+                result(accessToken)
+            })
+
         case "verifyNumber":
             guard let arguments = call.arguments,
                   let args = arguments as? [String: Any] else { return }
